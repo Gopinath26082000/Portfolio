@@ -1,0 +1,59 @@
+pipeline {
+    agent any
+
+    environment {
+        APP_NAME = "portfolio"
+        DEPLOY_PATH = "environment {
+    DEPLOY_PATH = "C:\\inetpub\\wwwroot\\portfolio"  // Change this as per your server
+}
+        SERVER_USER = "asus"
+        SERVER_IP = "192.168.1.21"
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Gopinath26082000/Portfolio.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building the portfolio...'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sshagent(['your-ssh-credentials-id']) {
+                    sh """
+                    ssh ${asus}@${192.168.1.21} 'rm -rf ${DEPLOY_PATH}/*'
+                    scp -r * ${asus}@${192.168.1.21}:${DEPLOY_PATH}/
+                    """
+                }
+            }
+        }
+
+        stage('Cleanup') {
+            steps {
+                echo 'Cleaning up workspace...'
+                deleteDir()
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Deployment successful!'
+        }
+        failure {
+            echo 'Deployment failed.'
+        }
+    }
+}
