@@ -1,5 +1,6 @@
 import streamlit as st
 
+st.set_theme("dark")
 # Set page title and layout
 st.set_page_config(page_title="Gopinath Barani | Portfolio", page_icon="📂", layout="wide")
 
