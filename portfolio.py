@@ -3,23 +3,23 @@ import streamlit as st
 # Set page title and layout
 st.set_page_config(page_title="Gopinath Barani | Portfolio", page_icon="📂", layout="wide")
 
-def add_bg_from_url():
-    st.markdown(
-        f"""
-        <style>
-        .stApp {{
-            background-image: url("https://img.freepik.com/free-vector/hexagonal-black-background-modern-design_1017-37442.jpg");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+# def add_bg_from_url():
+#     st.markdown(
+#         f"""
+#         <style>
+#         .stApp {{
+#             background-image: url("https://img.freepik.com/free-vector/hexagonal-black-background-modern-design_1017-37442.jpg");
+#             background-size: cover;
+#             background-position: center;
+#             background-attachment: fixed;
+#         }}
+#         </style>
+#         """,
+#         unsafe_allow_html=True
+#     )
 
-# Call the function at the beginning of the script
-add_bg_from_url()
+# # Call the function at the beginning of the script
+# add_bg_from_url()
 
 # Sidebar with Profile Info
 st.sidebar.image("Professional pic.jpg", width=200)  # Add your picture here
