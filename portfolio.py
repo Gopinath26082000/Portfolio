@@ -22,7 +22,7 @@ def add_bg_from_url():
 add_bg_from_url()
 
 # Sidebar with Profile Info
-st.sidebar.image("D:\Professional pic.jpg", width=200)  # Add your picture here
+st.sidebar.image("Professional pic.jpg", width=200)  # Add your picture here
 st.sidebar.title("Gopinath Barani")
 st.sidebar.write("Python | Linux | AI | Devops | AWS")
 st.sidebar.markdown("[📧 Email Me](mailto:gopinath26082000@gmail.com)")
